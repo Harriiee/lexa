@@ -139,8 +139,7 @@ export function Dictionary() {
     }
     const fetchSuggestions = async () => {
       try {
-        const res = await fetch(`https://data-kbbi-gaul-backendkbbi.up.railway.app/api/search?q=${searchInput}`);
-        const data = await res.json();
+        const res = await fetch(`https://data-kbbi-gaul-backendkbbi.up.railway.app/api/search?q=${encodeURIComponent(searchInput)}`);        const data = await res.json();
         if (Array.isArray(data)) {
           setSuggestions(data);
           setShowSuggestions(true);
